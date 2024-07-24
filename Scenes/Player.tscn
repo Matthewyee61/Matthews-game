@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://brv7psu6flwrv"]
+
+[ext_resource type="Script" path="res://Scenes/player.gd" id="1_0b4ii"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rf3hf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h6t03"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_0b4ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("CapsuleShape2D_rf3hf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_h6t03")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
