@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 @export var speed = 300.0
-@export var jump_velocity = -400.0
+@export var jump_velocity = -500.0
 @export var acceleration : float = 15.0
 @export var jumps = 1
 
@@ -21,7 +21,7 @@ func update_state():
 		return
 	if is_on_floor():
 		if velocity == Vector2.ZERO:
-			anim_state == state.IDLE
+			anim_state = state.IDLE
 		elif velocity.x !=0:
 			anim_state = state.WALK 
 
