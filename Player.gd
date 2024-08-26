@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var acceleration : float = 15.0
 @export var jumps = 1
 
-enum state {IDLE, WALK, ATTACK, HURT}
+enum state {IDLE, WALK, JUMP, ATTACK, HURT}
 
 var anim_state = state.IDLE
 
@@ -24,6 +24,9 @@ func update_state():
 			anim_state = state.IDLE
 		elif velocity.x !=0:
 			anim_state = state.WALK 
+	else:
+		if velocity.y < 0:
+			anim_state = state.JUMP
 
 func update_animation(direction):
 	if direction > 0:
@@ -35,6 +38,8 @@ func update_animation(direction):
 			animation_player.play("idle")
 		state.WALK:
 			animation_player.play("walk")
+		state.JUMP:
+			animation_player.play("jump")
 		state.ATTACK:
 			animation_player.play("attack")
 		state.HURT:

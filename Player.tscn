@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://vkok7d2ol8ff"]
+[gd_scene load_steps=42 format=3 uid="uid://vkok7d2ol8ff"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_ebppv"]
 [ext_resource type="Texture2D" uid="uid://c6u6rtinvm345" path="res://Sprites/Gerald Ramsey Sword-1.png.png" id="2_svoy5"]
@@ -13,6 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://f3iluv1v5610" path="res://Sprites/Gerald Ramsey Hurt-2.png.png" id="6_ju1y3"]
 [ext_resource type="Texture2D" uid="uid://blstkea8yvvo8" path="res://Sprites/Gerald Ramsey Hurt-3.png.png" id="7_hr8f8"]
 [ext_resource type="Texture2D" uid="uid://d0wyol47enx2p" path="res://Sprites/Gerald Ramsey Hurt-4.png.png" id="8_dshlm"]
+[ext_resource type="Texture2D" uid="uid://cka8cr7455ys6" path="res://Sprites/Gerald Ramsey Jump-1.png.png" id="10_4lknn"]
+[ext_resource type="Texture2D" uid="uid://dcwbh6t6l552b" path="res://Sprites/Gerald Ramsey Jump-2.png.png" id="11_n114b"]
+[ext_resource type="Texture2D" uid="uid://cuh2a33ykma36" path="res://Sprites/Gerald Ramsey Jump-3.png.png" id="12_w227a"]
+[ext_resource type="Texture2D" uid="uid://btph0vspl1tx" path="res://Sprites/Gerald Ramsey Jump-4.png.png" id="13_xkvug"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eg0x1"]
 atlas = ExtResource("2_svoy5")
@@ -44,6 +48,22 @@ region = Rect2(0, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w8qfj"]
 atlas = ExtResource("5_t4sfh")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhuy5"]
+atlas = ExtResource("10_4lknn")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ep16h"]
+atlas = ExtResource("11_n114b")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnkkc"]
+atlas = ExtResource("12_w227a")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdmej"]
+atlas = ExtResource("13_xkvug")
 region = Rect2(0, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e631g"]
@@ -105,6 +125,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_jhuy5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ep16h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnkkc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdmej")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_e631g")
 }, {
 "duration": 1.0,
@@ -152,6 +189,34 @@ tracks/1/keys = {
 "values": ["attack"]
 }
 
+[sub_resource type="Animation" id="Animation_gajcv"]
+length = 0.571429
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.142857, 0.285714, 0.428571),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["hurt"]
+}
+
 [sub_resource type="Animation" id="Animation_xf2xc"]
 length = 0.2
 loop_mode = 1
@@ -180,8 +245,8 @@ tracks/1/keys = {
 "values": ["idle"]
 }
 
-[sub_resource type="Animation" id="Animation_2hfrd"]
-length = 0.4
+[sub_resource type="Animation" id="Animation_sfjr6"]
+length = 0.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -190,7 +255,35 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["jump"]
+}
+
+[sub_resource type="Animation" id="Animation_2hfrd"]
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
@@ -211,7 +304,9 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oqxkn"]
 _data = {
 "attack": SubResource("Animation_dsdv6"),
+"hurt": SubResource("Animation_gajcv"),
 "idle": SubResource("Animation_xf2xc"),
+"jump": SubResource("Animation_sfjr6"),
 "walk": SubResource("Animation_2hfrd")
 }
 
@@ -222,7 +317,7 @@ script = ExtResource("1_ebppv")
 position = Vector2(2, 0)
 scale = Vector2(0.45, 0.45)
 sprite_frames = SubResource("SpriteFrames_qm0wu")
-animation = &"attack"
+animation = &"jump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
