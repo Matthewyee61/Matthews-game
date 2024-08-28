@@ -1,0 +1,79 @@
+[gd_scene load_steps=15 format=3 uid="uid://ca01ivj4h33jb"]
+
+[ext_resource type="Texture2D" uid="uid://dkyxoqvt78wkp" path="res://Sprites/Orc Idle-1.png.png" id="1_ot4bg"]
+[ext_resource type="Texture2D" uid="uid://c0u8a2e7gg87g" path="res://Sprites/Orc Walking-1.png.png" id="2_5x2f0"]
+[ext_resource type="Texture2D" uid="uid://5r3uyxjxuok7" path="res://Sprites/Orc Walking-2.png.png" id="3_aoddd"]
+[ext_resource type="Texture2D" uid="uid://q1woavbxdxj2" path="res://Sprites/Orc Walking-3.png.png" id="4_unmpw"]
+[ext_resource type="Texture2D" uid="uid://bkppguycc04ca" path="res://Sprites/Orc Walking-4.png.png" id="5_pu5j3"]
+[ext_resource type="Texture2D" uid="uid://dahyj0gdxpqir" path="res://Sprites/Orc Walking-5.png.png" id="6_ikemd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cmuek"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofwuq"]
+atlas = ExtResource("1_ot4bg")
+region = Rect2(0, 0, 228, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44svf"]
+atlas = ExtResource("2_5x2f0")
+region = Rect2(0, 0, 228, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1s72g"]
+atlas = ExtResource("3_aoddd")
+region = Rect2(0, 0, 228, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y60hm"]
+atlas = ExtResource("4_unmpw")
+region = Rect2(0, 0, 228, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25hbg"]
+atlas = ExtResource("5_pu5j3")
+region = Rect2(0, 0, 228, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74rg8"]
+atlas = ExtResource("6_ikemd")
+region = Rect2(0, 0, 228, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_plckh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofwuq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44svf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1s72g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y60hm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25hbg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74rg8")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 8.0
+}]
+
+[node name="Orc" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(10, 10)
+shape = SubResource("CircleShape2D_cmuek")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_plckh")
+animation = &"walking"
+frame_progress = 0.936404
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

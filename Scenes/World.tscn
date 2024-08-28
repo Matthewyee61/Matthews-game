@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://de6dpecwyyukx"]
+[gd_scene load_steps=7 format=4 uid="uid://de6dpecwyyukx"]
 
 [ext_resource type="PackedScene" uid="uid://vkok7d2ol8ff" path="res://Player.tscn" id="1_5jtm6"]
 [ext_resource type="Texture2D" uid="uid://xvgdfcskuux1" path="res://Background/grass tileset.png" id="2_spioi"]
 [ext_resource type="Texture2D" uid="uid://dvog07euunhaq" path="res://Background/Sky.jpg" id="3_qpvc1"]
+[ext_resource type="PackedScene" uid="uid://dunbun7ob3wa8" path="res://Scenes/orc.tscn" id="4_qjtxp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ixw1s"]
 texture = ExtResource("2_spioi")
@@ -547,6 +548,9 @@ motion_mirroring = Vector2(768, 0)
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/Sky"]
 offset_top = -100.0
 offset_right = 1536.0
-offset_bottom = 575.0
+offset_bottom = 646.0
 texture = ExtResource("3_qpvc1")
 stretch_mode = 1
+
+[node name="Orc" parent="." instance=ExtResource("4_qjtxp")]
+position = Vector2(460, 170)
