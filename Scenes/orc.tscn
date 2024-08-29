@@ -68,6 +68,7 @@ animations = [{
 [node name="Orc" type="Area2D" groups=["Death"]]
 scale = Vector2(0.2, 0.2)
 script = ExtResource("1_l8eat")
+flip_time = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.2, 1.2)
