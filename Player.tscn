@@ -311,6 +311,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.75, 0.75)
 script = ExtResource("1_ebppv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -333,5 +334,6 @@ autoplay = "idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -50)
+zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
